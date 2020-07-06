@@ -7,7 +7,7 @@ class generateNav extends React.Component {
   	let data = this.props.data
   	// console.log('generateNav data = ', data)
   	return (
-  		<ul>
+  		<ul className="navigation">
   			{data.map((data, index) =>{
   				if(data.subnav){
 		  			return <GenerateSubnav data={data}  key={data.text} />

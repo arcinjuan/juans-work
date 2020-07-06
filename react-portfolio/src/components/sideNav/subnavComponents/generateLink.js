@@ -7,7 +7,7 @@ class generateLink extends React.Component {
   	if(data.subnav){
   		return <GenerateSubnav data={data} />
   	}
-    return <li key={data.text} className="test">{data.text}</li>
+    return <li key={data.text}><a href={data.url}>{data.text}</a></li>
   }
 }
 export default generateLink;

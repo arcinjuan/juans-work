@@ -1,8 +1,8 @@
 const links = [
 
 	{
-		text: 'home',
-		url: '/',
+		text: 'google',
+		url: 'http://www.facebook.com',
 	},
 	{
 		text: 'about',
