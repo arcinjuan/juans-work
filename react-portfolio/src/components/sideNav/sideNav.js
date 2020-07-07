@@ -2,16 +2,19 @@ import React from 'react';
 import links from './routes';
 import GenerateNav from './subnavComponents/generateNav';
 import Styles from './side-nav.css';
-
+import styled, { keyframes } from 'styled-components';
+import {useSpring, animated} from 'react-spring'
 import { FaBars } from 'react-icons/fa';
 
-
 class sideNav extends React.Component {
+
+
 
 	constructor(props){
 		super(props);
 		this.state = {
-			navOpen: true,
+			navOpen: false,
+			animationClass: ''
 		}
 	}
 
@@ -25,14 +28,36 @@ class sideNav extends React.Component {
   		return <span onClick={this.toggleNav} className="sub-nav-icon"><FaBars /></span>
   	}
     return (
-    	<aside id="side-nav">
+    	<Container>
     		<div className="nav-toggle">
     			<span onClick={this.toggleNav} className="sub-nav-icon"><FaBars /></span>
     		</div>
     		<GenerateNav data={links} />
-    	</aside>
+    	</Container>
     )
   }
 }
 
 export default sideNav;
+
+
+
+const FadeInLeft = keyframes`
+ 0% { margin-left:-1000px }
+ 100% { margin-left: 0;  }
+`
+
+const Container = styled.aside`
+	background:#252525;
+	max-width: 200px;
+	width: 100%;
+	min-height: 100vh;
+	color:#ccc;
+	display:block;
+	position: fixed;
+	top:0;
+	left:0;
+	animation-name: ${FadeInLeft};
+	animation-duration: .2s;
+`
+
